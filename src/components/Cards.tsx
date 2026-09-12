@@ -1,8 +1,89 @@
-import { Link } from 'react-router-dom';
-import { siteContent as s,formatPrice } from '../data/siteContent';
-import type { Treatment,Technology,Result,Testimonial } from '../types';
-import { ImagePlaceholder } from './Primitives';
-export function TreatmentCard({treatment:t}:{treatment:Treatment}) { return <article className="treatment-card"><Link className="image-link" to={t.detail?`/tratamentos/${t.slug}`:`/contato?tratamento=${t.slug}#avaliacao`} aria-label={`${s.ctas.details}: ${t.name}`}><ImagePlaceholder media={{...t.image,label:t.image.src?t.image.label:`${s.ui.photo} · ${t.name}`}}/></Link><p className="eyebrow">{t.eyebrow}</p><h3>{t.name}</h3><p className="card-subtitle">{t.shortDescription}</p><p className="card-description">{t.longDescription}</p><div className="card-bottom"><span>{formatPrice(t.price)}</span><Link className="text-link" to={t.detail?`/tratamentos/${t.slug}`:`/contato?tratamento=${t.slug}#avaliacao`}>{s.ctas.details}<span aria-hidden="true"> ↗</span></Link></div></article>; }
-export function TechnologyCard({technology:t}:{technology:Technology}) { return <article className="technology-card"><ImagePlaceholder media={t.image} ratio="5 / 3"/><h3>{t.name}</h3><p>{t.description}</p><Link className="text-link" to={`/tecnologias#${t.slug}`}>{s.ui.applications}<span aria-hidden="true"> ↗</span></Link></article>; }
-export function ResultCard({result:r}:{result:Result}) { return <article className="result-card"><div className="comparison"><ImagePlaceholder media={r.beforeImage} ratio="3 / 4"/><ImagePlaceholder media={r.afterImage} ratio="3 / 4"/></div><h3>{r.treatment}</h3><p>{r.objective}</p>{r.period&&<p>{r.period}</p>}</article>; }
-export function TestimonialCard({testimonial:t}:{testimonial:Testimonial}) { return <figure className="testimonial-card"><div className="stars" role="img" aria-label={s.ui.stars}>★★★★★</div><p className="small">{t.rating}</p><blockquote>{t.quote}</blockquote><figcaption><strong>{t.name}</strong><span>{t.role}</span></figcaption></figure>; }
+import { Link } from "react-router-dom";
+import { siteContent as s, formatPrice } from "../data/siteContent";
+import type { Treatment, Technology, Result, Testimonial } from "../types";
+import { ImagePlaceholder } from "./Primitives";
+export function TreatmentCard({ treatment: t }: { treatment: Treatment }) {
+  return (
+    <article className="treatment-card">
+      <Link
+        className="image-link"
+        to={
+          t.detail
+            ? `/tratamentos/${t.slug}`
+            : `/contato?tratamento=${t.slug}#avaliacao`
+        }
+        aria-label={`${s.ctas.details}: ${t.name}`}
+      >
+        <ImagePlaceholder
+          media={{
+            ...t.image,
+            label: t.image.src ? t.image.label : `${s.ui.photo} · ${t.name}`,
+          }}
+        />
+      </Link>
+      <p className="eyebrow">{t.eyebrow}</p>
+      <h3>{t.name}</h3>
+      <p className="card-subtitle">{t.shortDescription}</p>
+      <p className="card-description">{t.longDescription}</p>
+      <div className="card-bottom">
+        <span>{formatPrice(t.price)}</span>
+        <Link
+          className="text-link"
+          to={
+            t.detail
+              ? `/tratamentos/${t.slug}`
+              : `/contato?tratamento=${t.slug}#avaliacao`
+          }
+        >
+          {s.ctas.details}
+          <span aria-hidden="true"> ↗</span>
+        </Link>
+      </div>
+    </article>
+  );
+}
+export function TechnologyCard({ technology: t }: { technology: Technology }) {
+  return (
+    <article className="technology-card">
+      <ImagePlaceholder media={t.image} ratio="5 / 3" />
+      <h3>{t.name}</h3>
+      <p>{t.description}</p>
+      <Link className="text-link" to={`/tecnologias#${t.slug}`}>
+        {s.ui.applications}
+        <span aria-hidden="true"> ↗</span>
+      </Link>
+    </article>
+  );
+}
+export function ResultCard({ result: r }: { result: Result }) {
+  return (
+    <article className="result-card">
+      <div className="comparison">
+        <ImagePlaceholder media={r.beforeImage} ratio="3 / 4" />
+        <ImagePlaceholder media={r.afterImage} ratio="3 / 4" />
+      </div>
+      <h3>{r.treatment}</h3>
+      <p>{r.objective}</p>
+      {r.period && <p>{r.period}</p>}
+    </article>
+  );
+}
+export function TestimonialCard({
+  testimonial: t,
+}: {
+  testimonial: Testimonial;
+}) {
+  return (
+    <figure className="testimonial-card">
+      <div className="stars" role="img" aria-label={s.ui.stars}>
+        ★★★★★
+      </div>
+      <p className="small">{t.rating}</p>
+      <blockquote>{t.quote}</blockquote>
+      <figcaption>
+        <strong>{t.name}</strong>
+        <span>{t.role}</span>
+      </figcaption>
+    </figure>
+  );
+}

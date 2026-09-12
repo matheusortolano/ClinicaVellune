@@ -1,2 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;600&family=Manrope:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap');
-:root{--background:#F7F5F1;--background-secondary:#EEEAE4;--text:#202524;--text-secondary:#666B68;--primary:#314A46;--primary-dark:#203330;--accent:#BBA481;--white:#FFFFFF;--border:#d5d4cc;--error:#9b302a;--font-heading:'Playfair Display',Georgia,serif;--font-body:'DM Sans',Arial,sans-serif;--font-brand:'Manrope',Arial,sans-serif;--space-1:.5rem;--space-2:1rem;--space-3:1.5rem;--space-4:2rem;--space-5:3rem;--space-6:4rem;--space-section:clamp(4rem,7vw,7.5rem);--radius-sm:2px;--radius-md:4px;--radius-pill:100px;--container:1320px;--gutter:clamp(1.25rem,4.5vw,5rem);--header-height:96px;--transition:180ms ease;}
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;600&family=Manrope:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap");
+:root {
+  --background: #f7f5f1;
+  --background-secondary: #eeeae4;
+  --text: #202524;
+  --text-secondary: #666b68;
+  --primary: #314a46;
+  --primary-dark: #203330;
+  --accent: #bba481;
+  --white: #ffffff;
+  --border: #d5d4cc;
+  --error: #9b302a;
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "DM Sans", Arial, sans-serif;
+  --font-brand: "Manrope", Arial, sans-serif;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --space-section: clamp(4rem, 7vw, 7.5rem);
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-pill: 100px;
+  --container: 1320px;
+  --gutter: clamp(1.25rem, 4.5vw, 5rem);
+  --header-height: 96px;
+  --transition: 180ms ease;
+}

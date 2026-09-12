@@ -1,5 +1,55 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { siteContent as s } from '../data/siteContent';
-export function Seo({title,description}:{title:string;description:string}){useEffect(()=>{document.title=`${title} | ${s.brand.fullName}`;function meta(key:string,value:string,property=false){let el=document.head.querySelector<HTMLMetaElement>(`meta[${property?'property':'name'}="${key}"]`);if(!el){el=document.createElement('meta');el.setAttribute(property?'property':'name',key);document.head.append(el);}el.content=value;}meta('description',description);meta('og:title',document.title,true);meta('og:description',description,true);meta('og:type','website',true);meta('og:locale','pt_BR',true);if(s.seo.openGraph.image)meta('og:image',s.seo.openGraph.image,true);if(s.seo.openGraph.siteUrl)meta('og:url',new URL(window.location.pathname,s.seo.openGraph.siteUrl).href,true);},[title,description]);return null;}
-export function RouteEffects(){const {pathname,hash}=useLocation();useEffect(()=>{const frame=requestAnimationFrame(()=>{if(hash){document.getElementById(hash.slice(1))?.scrollIntoView();}else{window.scrollTo({top:0,behavior:'instant'});document.querySelector<HTMLElement>('#main')?.focus({preventScroll:true});}});return()=>cancelAnimationFrame(frame);},[pathname,hash]);return null;}
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { siteContent as s } from "../data/siteContent";
+export function Seo({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) {
+  useEffect(() => {
+    document.title = `${title} | ${s.brand.fullName}`;
+    function meta(key: string, value: string, property = false) {
+      let el = document.head.querySelector<HTMLMetaElement>(
+        `meta[${property ? "property" : "name"}="${key}"]`,
+      );
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(property ? "property" : "name", key);
+        document.head.append(el);
+      }
+      el.content = value;
+    }
+    meta("description", description);
+    meta("og:title", document.title, true);
+    meta("og:description", description, true);
+    meta("og:type", "website", true);
+    meta("og:locale", "pt_BR", true);
+    if (s.seo.openGraph.image) meta("og:image", s.seo.openGraph.image, true);
+    if (s.seo.openGraph.siteUrl)
+      meta(
+        "og:url",
+        new URL(window.location.pathname, s.seo.openGraph.siteUrl).href,
+        true,
+      );
+  }, [title, description]);
+  return null;
+}
+export function RouteEffects() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      if (hash) {
+        document.getElementById(hash.slice(1))?.scrollIntoView();
+      } else {
+        window.scrollTo({ top: 0, behavior: "instant" });
+        document
+          .querySelector<HTMLElement>("#main")
+          ?.focus({ preventScroll: true });
+      }
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [pathname, hash]);
+  return null;
+}
