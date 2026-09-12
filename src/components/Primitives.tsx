@@ -1,0 +1,12 @@
+import type { ComponentProps, ReactNode } from 'react';
+import { Link } from 'react-router-dom';
+import { siteContent as s } from '../data/siteContent';
+import type { Media } from '../types';
+export function Container({children,className=''}:{children:ReactNode;className?:string}) { return <div className={`container ${className}`}>{children}</div>; }
+export function Button({children,to,variant='primary',...props}:ComponentProps<'button'> & {to?:string;variant?:'primary'|'outline'|'light';children:ReactNode}) { const className=`button button--${variant} ${props.className??''}`; return to ? <Link to={to} className={className}>{children}<span aria-hidden="true">↗</span></Link> : <button {...props} className={className}>{children}</button>; }
+export function SectionHeader({eyebrow,title,description}:{eyebrow?:string;title:string;description?:string}) { return <div className="section-heading">{eyebrow&&<p className="eyebrow">{eyebrow}</p>}<h2>{title}</h2>{description&&<p>{description}</p>}</div>; }
+// Replace with real clinic photography
+export function ImagePlaceholder({media,ratio='4 / 3',className=''}:{media:Media;ratio?:string;className?:string}) { return <div className={`image-placeholder ${className}`} style={{aspectRatio:ratio}}>{media.src ? <img src={media.src} alt={media.alt} loading="lazy"/> : <div role="img" aria-label={media.alt}><span className="placeholder-mark" aria-hidden="true">V</span><span>{media.label}</span><span className="placeholder-rule" aria-hidden="true"/></div>}</div>; }
+export function Breadcrumb({items}:{items:{label:string;to?:string}[]}) { return <nav className="breadcrumb" aria-label="Breadcrumb"><ol><li><Link to="/">{s.ui.home}</Link></li>{items.map((x,i)=><li key={i}>{x.to?<Link to={x.to}>{x.label}</Link>:<span aria-current="page">{x.label}</span>}</li>)}</ol></nav>; }
+export function CTASection() { return <section className="cta-section"><Container><p className="eyebrow">{s.brand.descriptor}</p><h2>{s.cta.headline}</h2><p>{s.cta.text}</p><Button to="/contato#avaliacao" variant="light">{s.ctas.personal}</Button></Container></section>; }
+export function InternalHero({title,description,eyebrow}:{title:string;description:string;eyebrow:string}) { return <section className="internal-hero"><Container><Breadcrumb items={[{label:eyebrow}]}/><p className="eyebrow">{eyebrow}</p><h1>{title}</h1><p className="lead">{description}</p></Container></section>; }
