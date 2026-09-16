@@ -344,7 +344,6 @@ main:focus {
 
   background-color: var(--primary-dark);
 
-  background-image: url("/images/bg-hero.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -355,7 +354,6 @@ main:focus {
   align-items: center;
 }
 
-.hero > video,
 .hero-overlay {
   position: absolute;
   inset: 0;

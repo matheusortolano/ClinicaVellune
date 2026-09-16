@@ -33,7 +33,7 @@ function Hook() {
         playsInline
       >
         <source
-          src="/videos/essencia-vellune.mp4"
+          src={s.hook.videoSrc}
           type="video/mp4"
         />
       </video>

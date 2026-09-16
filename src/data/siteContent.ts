@@ -7,29 +7,44 @@
   Testimonial,
   Treatment,
 } from "../types";
-const photo = (label: string): Media => ({ src: "", alt: label, label });
 
-const image = (file: string) => `${import.meta.env.BASE_URL}images/${file}`;
+const photo = (label: string): Media => ({
+  src: "",
+  alt: label,
+  label,
+});
+
+const image = (file: string) =>
+  `${import.meta.env.BASE_URL}images/${file}`;
+
+const video = (file: string) =>
+  `${import.meta.env.BASE_URL}videos/${file}`;
 
 const base = {
   cta: "Agendar minha avaliação",
   image: photo("FOTOGRAFIA DO TRATAMENTO"),
   gallery: [],
   detail: true,
-  benefits: ["Planejamento personalizado", "Respeito à identidade"],
+  benefits: [
+    "Planejamento personalizado",
+    "Respeito à identidade",
+  ],
   howItWorks:
     "A avaliação orienta a escolha das técnicas, a sequência de cuidados e o acompanhamento. O protocolo é definido individualmente e pode ser ajustado conforme a evolução.",
   audience:
     "Para quem deseja cuidar dos sinais descritos com um planejamento individual. A indicação depende da avaliação, do histórico de saúde e dos objetivos de cada pessoa.",
 };
+
 export const treatments: Treatment[] = [
   {
     ...base,
     slug: "lifting-essencial",
     name: "Lifting Essencial",
     eyebrow: "Sustentação & contorno",
-    headline: "Um rosto mais firme sem transformar seus traços.",
-    shortDescription: "Sustentação, com naturalidade.",
+    headline:
+      "Um rosto mais firme sem transformar seus traços.",
+    shortDescription:
+      "Sustentação, com naturalidade.",
     image: {
       src: image("lifting-essencial.png"),
       alt: "Lifting Essencial",
@@ -51,13 +66,16 @@ export const treatments: Treatment[] = [
     ],
     price: 3900,
   },
+
   {
     ...base,
     slug: "arquitetura-facial",
     name: "Arquitetura Facial",
     eyebrow: "Proporção & identidade",
-    headline: "Harmonia não significa padronização.",
-    shortDescription: "Equilíbrio que preserva seus traços.",
+    headline:
+      "Harmonia não significa padronização.",
+    shortDescription:
+      "Equilíbrio que preserva seus traços.",
     image: {
       src: image("arquitetura-facial.png"),
       alt: "Arquitetura Facial",
@@ -81,13 +99,16 @@ export const treatments: Treatment[] = [
     ],
     price: 3500,
   },
+
   {
     ...base,
     slug: "colageno-ativo",
     name: "Colágeno Ativo",
     eyebrow: "Estímulo & firmeza",
-    headline: "O tratamento acontece hoje. O processo continua na sua pele.",
-    shortDescription: "Um cuidado que continua na pele.",
+    headline:
+      "O tratamento acontece hoje. O processo continua na sua pele.",
+    shortDescription:
+      "Um cuidado que continua na pele.",
     image: {
       src: image("colageno-ativo.png"),
       alt: "Colágeno Ativo",
@@ -110,13 +131,16 @@ export const treatments: Treatment[] = [
     ],
     price: 4200,
   },
+
   {
     ...base,
     slug: "pele-de-luz",
     name: "Pele de Luz",
     eyebrow: "Textura & luminosidade",
-    headline: "Quando a pele melhora, o rosto inteiro muda.",
-    shortDescription: "A qualidade da pele em primeiro plano.",
+    headline:
+      "Quando a pele melhora, o rosto inteiro muda.",
+    shortDescription:
+      "A qualidade da pele em primeiro plano.",
     image: {
       src: image("pele-de-luz.png"),
       alt: "Pele de Luz",
@@ -139,13 +163,16 @@ export const treatments: Treatment[] = [
     ],
     price: 2600,
   },
+
   {
     ...base,
     slug: "olhar-renovado",
     name: "Olhar Renovado",
     eyebrow: "Expressão & delicadeza",
-    headline: "Um olhar cansado nem sempre precisa de uma grande mudança.",
-    shortDescription: "Atenção aos detalhes do seu olhar.",
+    headline:
+      "Um olhar cansado nem sempre precisa de uma grande mudança.",
+    shortDescription:
+      "Atenção aos detalhes do seu olhar.",
     image: {
       src: image("olhar-renovado.png"),
       alt: "Olhar Renovado",
@@ -167,14 +194,15 @@ export const treatments: Treatment[] = [
     ],
     price: 2300,
   },
-  // No price supplied for this complementary care.
+
   {
     ...base,
     slug: "limpeza-de-pele",
     name: "Limpeza de Pele",
     eyebrow: "Cuidado essencial",
     headline: "O cuidado começa pela pele.",
-    shortDescription: "Um momento de atenção à sua pele.",
+    shortDescription:
+      "Um momento de atenção à sua pele.",
     image: {
       src: image("limpeza-de-pele.png"),
       alt: "Limpeza de Pele",
@@ -188,6 +216,7 @@ export const treatments: Treatment[] = [
     detail: false,
   },
 ];
+
 export const technologies: Technology[] = [
   {
     slug: "ultrassom",
@@ -206,6 +235,7 @@ export const technologies: Technology[] = [
       label: "Ultrassom Microfocado",
     },
   },
+
   {
     slug: "radiofrequencia",
     name: "Plataforma de Radiofrequência Completa",
@@ -216,19 +246,29 @@ export const technologies: Technology[] = [
       "Firmeza e textura",
       "Remodelação da pele",
     ],
-    related: ["colageno-ativo", "olhar-renovado"],
+    related: [
+      "colageno-ativo",
+      "olhar-renovado",
+    ],
     image: {
-      src: image("radiofrequencia-microagulhada.png"),
+      src: image(
+        "radiofrequencia-microagulhada.png",
+      ),
       alt: "Radiofrequência Microagulhada",
       label: "Radiofrequência Microagulhada",
     },
   },
+
   {
     slug: "thulium",
     name: "Laser de Thulium",
     description:
       "Tecnologia voltada para renovação, luminosidade, textura e uniformidade da pele.",
-    applications: ["Luminosidade", "Textura", "Uniformidade"],
+    applications: [
+      "Luminosidade",
+      "Textura",
+      "Uniformidade",
+    ],
     related: ["pele-de-luz"],
     image: {
       src: image("laser-thulium.png"),
@@ -237,18 +277,34 @@ export const technologies: Technology[] = [
     },
   },
 ];
+
 export const contact: ContactInfo = {
   phone: "(15) XXXX-XXXX",
   whatsapp: "(15) 9XXXX-XXXX",
   instagram: "@[inserir perfil real]",
-  address: ["Av. das Magnólias, 480", "Jardim Campolim", "Sorocaba — SP"],
-  addressNote: "Endereço fictício — projeto conceitual",
+  address: [
+    "Av. das Magnólias, 480",
+    "Jardim Campolim",
+    "Sorocaba — SP",
+  ],
+  addressNote:
+    "Endereço fictício — projeto conceitual",
   hours: [
-    { day: "Segunda a sexta", time: "08h às 20h" },
-    { day: "Sábado", time: "08h às 15h" },
-    { day: "Domingo", time: "Fechado" },
+    {
+      day: "Segunda a sexta",
+      time: "08h às 20h",
+    },
+    {
+      day: "Sábado",
+      time: "08h às 15h",
+    },
+    {
+      day: "Domingo",
+      time: "Fechado",
+    },
   ],
 };
+
 export const faqs: FAQ[] = [
   [
     "Como sei qual tratamento devo fazer?",
@@ -290,8 +346,11 @@ export const faqs: FAQ[] = [
     "Como saber o valor exato?",
     "Os valores apresentados são iniciais. O investimento final depende da avaliação e do protocolo indicado.",
   ],
-].map(([question, answer]) => ({ question, answer }));
-// Replace with verified, authorized patient testimonials and actual Google ratings before launch.
+].map(([question, answer]) => ({
+  question,
+  answer,
+}));
+
 export const testimonials: Testimonial[] = [
   {
     id: "mariana",
@@ -335,7 +394,7 @@ export const testimonials: Testimonial[] = [
     },
   },
 ];
-// Layout categories only; no patients, clinical outcomes or periods are fabricated.
+
 export const results: Result[] = [
   {
     id: "lifting",
@@ -346,7 +405,8 @@ export const results: Result[] = [
     },
     afterImage: photo(""),
     treatment: "Lifting",
-    objective: "Melhora da sustentação e definição do contorno facial.",
+    objective:
+      "Melhora da sustentação e definição do contorno facial.",
     period: "",
     category: "Lifting",
   },
@@ -354,13 +414,16 @@ export const results: Result[] = [
   {
     id: "harmonizacao",
     beforeImage: {
-      src: image("resultado-harmonizacao.png"),
+      src: image(
+        "resultado-harmonizacao.png",
+      ),
       alt: "Antes e depois da Harmonização Facial",
       label: "Resultado Harmonização",
     },
     afterImage: photo(""),
     treatment: "Harmonização",
-    objective: "Equilíbrio das proporções preservando a identidade facial.",
+    objective:
+      "Equilíbrio das proporções preservando a identidade facial.",
     period: "",
     category: "Harmonização",
   },
@@ -374,7 +437,8 @@ export const results: Result[] = [
     },
     afterImage: photo(""),
     treatment: "Pele",
-    objective: "Melhora da textura, uniformidade e luminosidade da pele.",
+    objective:
+      "Melhora da textura, uniformidade e luminosidade da pele.",
     period: "",
     category: "Pele",
   },
@@ -382,13 +446,16 @@ export const results: Result[] = [
   {
     id: "colageno",
     beforeImage: {
-      src: image("resultado-colageno.png"),
+      src: image(
+        "resultado-colageno.png",
+      ),
       alt: "Antes e depois do tratamento para estímulo de colágeno",
       label: "Resultado Colágeno",
     },
     afterImage: photo(""),
     treatment: "Colágeno",
-    objective: "Melhora progressiva da firmeza e da qualidade da pele.",
+    objective:
+      "Melhora progressiva da firmeza e da qualidade da pele.",
     period: "",
     category: "Colágeno",
   },
@@ -402,7 +469,8 @@ export const results: Result[] = [
     },
     afterImage: photo(""),
     treatment: "Olhar",
-    objective: "Aspecto mais descansado e cuidado da região dos olhos.",
+    objective:
+      "Aspecto mais descansado e cuidado da região dos olhos.",
     period: "",
     category: "Olhar",
   },
@@ -410,13 +478,16 @@ export const results: Result[] = [
   {
     id: "limpeza",
     beforeImage: {
-      src: image("resultado-limpeza.png"),
+      src: image(
+        "resultado-limpeza.png",
+      ),
       alt: "Antes e depois da limpeza de pele",
       label: "Resultado Limpeza de Pele",
     },
     afterImage: photo(""),
     treatment: "Limpeza de Pele",
-    objective: "Pele mais limpa, uniforme e com aspecto renovado.",
+    objective:
+      "Pele mais limpa, uniforme e com aspecto renovado.",
     period: "",
     category: "Limpeza de Pele",
   },
@@ -427,28 +498,54 @@ export const siteContent = {
     name: "VELLUNE",
     fullName: "Vellune Clínica Estética",
     descriptor: "CLÍNICA ESTÉTICA",
-    slogan: "Sua beleza não precisa mudar. Precisa ser bem cuidada.",
-    location: "ESTÉTICA FACIAL · SOROCABA, SP",
-    portfolio: "Projeto conceitual desenvolvido para portfólio.",
-    credit: "Design & estratégia por Nimbus",
+    slogan:
+      "Sua beleza não precisa mudar. Precisa ser bem cuidada.",
+    location:
+      "ESTÉTICA FACIAL · SOROCABA, SP",
+    portfolio:
+      "Projeto conceitual desenvolvido para portfólio.",
+    credit:
+      "Design & estratégia por Nimbus",
   },
+
   nav: [
-    { label: "Início", to: "/" },
-    { label: "Tratamentos", to: "/tratamentos" },
-    { label: "Tecnologias", to: "/tecnologias" },
-    { label: "Resultados", to: "/resultados" },
-    { label: "Dúvidas Frequentes", to: "/duvidas-frequentes" },
-    { label: "Contato", to: "/contato" },
+    {
+      label: "Início",
+      to: "/",
+    },
+    {
+      label: "Tratamentos",
+      to: "/tratamentos",
+    },
+    {
+      label: "Tecnologias",
+      to: "/tecnologias",
+    },
+    {
+      label: "Resultados",
+      to: "/resultados",
+    },
+    {
+      label: "Dúvidas Frequentes",
+      to: "/duvidas-frequentes",
+    },
+    {
+      label: "Contato",
+      to: "/contato",
+    },
   ],
+
   ctas: {
     schedule: "Agendar avaliação",
     hero: "Agendar minha avaliação",
     treatments: "Conhecer tratamentos",
     details: "Conhecer tratamento",
     allResults: "Ver todos os resultados",
-    personal: "Quero agendar minha avaliação",
+    personal:
+      "Quero agendar minha avaliação",
     back: "Voltar ao início",
   },
+
   ui: {
     skip: "Pular para o conteúdo",
     openMenu: "Abrir menu",
@@ -457,160 +554,326 @@ export const siteContent = {
     home: "Início",
     from: "A partir de",
     onRequest: "Investimento sob consulta",
+
     priceNote:
       "O investimento final depende da avaliação e do protocolo indicado.",
-    photo: "Fotografia — substituir posteriormente",
+
+    photo:
+      "Fotografia — substituir posteriormente",
+
     all: "Todos",
     related: "Tratamentos relacionados",
     indications: "O que podemos tratar",
     how: "Como funciona",
-    techniques: "Tecnologias e técnicas utilizadas",
+    techniques:
+      "Tecnologias e técnicas utilizadas",
     audience: "Para quem é",
     investment: "Investimento",
     others: "Outros tratamentos",
     applications: "Principais aplicações",
-    stars: "Espaço reservado para avaliação",
+
+    stars:
+      "Espaço reservado para avaliação",
+
     contact: "Contato",
     social: "Redes sociais",
     hours: "Horários de atendimento",
+
     map: "MAPA — inserir posteriormente",
     mapSub: "Sorocaba · São Paulo",
+
     phone: "Telefone",
     whatsapp: "WhatsApp",
     instagram: "Instagram",
-    pendingContact: "Contatos de demonstração — inserir dados reais.",
+
+    pendingContact:
+      "Contatos de demonstração — inserir dados reais.",
+
     gallery: "Galeria do tratamento",
   },
+
   hero: {
-    headline: "O tempo muda. Você não precisa deixar de se reconhecer.",
-    text: "Nossos tratamentos faciais personalizam, previnem, harmonizam e cuidam da sua pele de forma natural",
+    headline:
+      "O tempo muda. Você não precisa deixar de se reconhecer.",
+
+    text:
+      "Nossos tratamentos faciais personalizam, previnem, harmonizam e cuidam da sua pele de forma natural",
+
+    backgroundImage: image("bg-hero.png"),
+
+    // Mantidos para não quebrar componentes
+    // antigos que eventualmente ainda consultem
+    // essas propriedades.
     videoSrc: "",
     poster: "",
-    placeholder: "VÍDEO HERO — substituir posteriormente",
-    caption: "UM NOVO OLHAR PARA O SEU TEMPO",
+    placeholder:
+      "VÍDEO HERO — substituir posteriormente",
+
+    caption:
+      "UM NOVO OLHAR PARA O SEU TEMPO",
+
     pause: "Pausar vídeo",
     play: "Reproduzir vídeo",
   },
+
   hook: {
     eyebrow: "A ESSÊNCIA VELLUNE",
+
     headline:
       "Harmonizar. Prevenir. Reposicionar. Estimular. Suavizar. Iluminar.",
+
+    videoSrc: video(
+      "essencia-vellune.mp4",
+    ),
+
     paragraphs: [
       "Não existe um único tratamento para todos os rostos.",
+
       "Na Vellune, avaliamos proporções, pele, estrutura facial e processo de envelhecimento para criar protocolos que tratam o que realmente faz sentido para cada pessoa.",
     ],
+
     highlight:
       "Não buscamos transformar rostos. Buscamos preservar identidade enquanto cuidamos do tempo.",
   },
+
   care: {
-    eyebrow: "CUIDADO EM CADA DETALHE",
-    title: "O que cuidamos",
+    eyebrow:
+      "CUIDADO EM CADA DETALHE",
+
+    title:
+      "O que cuidamos",
+
     items: [
-      ["Harmonização", "Equilíbrio entre proporções e identidade."],
-      ["Prevenção", "Cuidado que acompanha cada fase."],
-      ["Contorno", "Atenção à estrutura e à definição facial."],
-      ["Colágeno", "Estímulo à firmeza e à sustentação."],
-      ["Qualidade da pele", "Textura, uniformidade e luminosidade."],
-      ["Expressão", "Suavidade que respeita seus movimentos."],
-      ["Olhar", "Cuidado específico para uma região delicada."],
+      [
+        "Harmonização",
+        "Equilíbrio entre proporções e identidade.",
+      ],
+
+      [
+        "Prevenção",
+        "Cuidado que acompanha cada fase.",
+      ],
+
+      [
+        "Contorno",
+        "Atenção à estrutura e à definição facial.",
+      ],
+
+      [
+        "Colágeno",
+        "Estímulo à firmeza e à sustentação.",
+      ],
+
+      [
+        "Qualidade da pele",
+        "Textura, uniformidade e luminosidade.",
+      ],
+
+      [
+        "Expressão",
+        "Suavidade que respeita seus movimentos.",
+      ],
+
+      [
+        "Olhar",
+        "Cuidado específico para uma região delicada.",
+      ],
     ],
   },
+
   sections: {
     treatments: {
-      eyebrow: "PROTOCOLOS PERSONALIZADOS",
-      title: "Tratamentos planejados para diferentes momentos do seu rosto.",
+      eyebrow:
+        "PROTOCOLOS PERSONALIZADOS",
+
+      title:
+        "Tratamentos planejados para diferentes momentos do seu rosto.",
     },
+
     technologies: {
-      eyebrow: "CIÊNCIA A SERVIÇO DO CUIDADO",
-      title: "Tecnologia com propósito.",
+      eyebrow:
+        "CIÊNCIA A SERVIÇO DO CUIDADO",
+
+      title:
+        "Tecnologia com propósito.",
     },
+
     results: {
-      eyebrow: "NATURALIDADE EM PRIMEIRO LUGAR",
-      title: "Resultados que respeitam cada rosto.",
+      eyebrow:
+        "NATURALIDADE EM PRIMEIRO LUGAR",
+
+      title:
+        "Resultados que respeitam cada rosto.",
     },
+
     testimonials: {
-      eyebrow: "CONFIANÇA QUE SE CONSTRÓI",
-      title: "Experiências Vellune",
+      eyebrow:
+        "CONFIANÇA QUE SE CONSTRÓI",
+
+      title:
+        "Experiências Vellune",
     },
+
     location: {
-      eyebrow: "UM ESPAÇO PARA CUIDAR DE VOCÊ",
-      title: "Nos encontramos em Sorocaba.",
+      eyebrow:
+        "UM ESPAÇO PARA CUIDAR DE VOCÊ",
+
+      title:
+        "Nos encontramos em Sorocaba.",
     },
   },
+
   cta: {
-    headline: "Seu rosto não precisa de tudo. Precisa do tratamento certo.",
-    text: "Antes de indicar qualquer procedimento, avaliamos sua pele, estrutura facial, queixas e objetivos para construir uma proposta personalizada.",
+    headline:
+      "Seu rosto não precisa de tudo. Precisa do tratamento certo.",
+
+    text:
+      "Antes de indicar qualquer procedimento, avaliamos sua pele, estrutura facial, queixas e objetivos para construir uma proposta personalizada.",
   },
+
   pages: {
     treatments: {
-      title: "Não começamos pelo procedimento. Começamos pelo seu rosto.",
+      title:
+        "Não começamos pelo procedimento. Começamos pelo seu rosto.",
+
       description:
         "Cada pessoa envelhece de uma maneira diferente. Por isso, nossos protocolos podem combinar tecnologias e procedimentos conforme anatomia, qualidade da pele, objetivos e momento de vida.",
     },
+
     technologies: {
-      title: "Tecnologia só faz sentido quando existe indicação.",
+      title:
+        "Tecnologia só faz sentido quando existe indicação.",
+
       description:
         "Tecnologias são ferramentas dentro de um planejamento. A escolha considera sua pele, estrutura facial e objetivos, com acompanhamento individual.",
     },
+
     results: {
-      title: "Resultados reais começam com expectativas reais.",
+      title:
+        "Resultados reais começam com expectativas reais.",
+
       description:
         "Cada rosto responde de maneira diferente. Por isso, número de sessões, evolução e resultados podem variar de pessoa para pessoa.",
+
       disclaimer:
         "Resultados individuais podem variar. Fotografias de pacientes só devem ser utilizadas mediante autorização.",
     },
+
     faq: {
-      title: "Informação também é cuidado.",
+      title:
+        "Informação também é cuidado.",
+
       description:
         "Respostas para começar sua jornada com mais clareza e confiança.",
     },
+
     contact: {
-      title: "Comece pela avaliação.",
+      title:
+        "Comece pela avaliação.",
+
       description:
         "Conte o que você procura. O primeiro passo é conhecer você.",
     },
+
     notFound: {
-      title: "Este caminho ainda não existe.",
-      description: "A página que você procura não foi encontrada.",
+      title:
+        "Este caminho ainda não existe.",
+
+      description:
+        "A página que você procura não foi encontrada.",
     },
   },
+
   form: {
-    title: "Sua avaliação começa aqui.",
+    title:
+      "Sua avaliação começa aqui.",
+
     description:
       "Compartilhe seus objetivos. Vamos começar pelo que importa para você.",
+
     name: "Nome",
     whatsapp: "WhatsApp",
     email: "E-mail",
-    treatment: "Tratamento de interesse",
+
+    treatment:
+      "Tratamento de interesse",
+
     message: "Mensagem",
-    period: "Melhor período para atendimento",
-    choose: "Selecione uma opção",
-    undecided: "Quero orientação na avaliação",
-    periods: ["Manhã", "Tarde", "Noite"],
-    consent: "Autorizo o contato através dos dados informados.",
-    submit: "Solicitar avaliação",
+
+    period:
+      "Melhor período para atendimento",
+
+    choose:
+      "Selecione uma opção",
+
+    undecided:
+      "Quero orientação na avaliação",
+
+    periods: [
+      "Manhã",
+      "Tarde",
+      "Noite",
+    ],
+
+    consent:
+      "Autorizo o contato através dos dados informados.",
+
+    submit:
+      "Solicitar avaliação",
+
     success:
       "Recebemos sua solicitação. Em uma implementação real, a equipe entraria em contato através dos dados informados.",
-    mock: "Formulário demonstrativo. Os dados não são enviados nem armazenados.",
+
+    mock:
+      "Formulário demonstrativo. Os dados não são enviados nem armazenados.",
+
     errors: {
-      name: "Informe seu nome.",
-      whatsapp: "Informe um WhatsApp com DDD e 10 ou 11 dígitos.",
-      email: "Informe um e-mail válido.",
-      treatment: "Escolha um tratamento ou solicite orientação.",
-      period: "Escolha um período.",
-      consent: "Autorize o contato para continuar.",
+      name:
+        "Informe seu nome.",
+
+      whatsapp:
+        "Informe um WhatsApp com DDD e 10 ou 11 dígitos.",
+
+      email:
+        "Informe um e-mail válido.",
+
+      treatment:
+        "Escolha um tratamento ou solicite orientação.",
+
+      period:
+        "Escolha um período.",
+
+      consent:
+        "Autorize o contato para continuar.",
     },
   },
+
   seo: {
     home: {
-      title: "Estética facial em Sorocaba",
+      title:
+        "Estética facial em Sorocaba",
+
       description:
         "Cuidado facial personalizado, naturalidade e tecnologia. Conheça a Vellune Clínica Estética. Projeto conceitual.",
     },
-    openGraph: { image: "", siteUrl: "" },
+
+    openGraph: {
+      image: "",
+      siteUrl: "",
+    },
   },
 };
-export const formatPrice = (price: number | null) =>
+
+export const formatPrice = (
+  price: number | null,
+) =>
   price === null
     ? siteContent.ui.onRequest
-    : `${siteContent.ui.from} ${new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 }).format(price)}`;
+    : `${siteContent.ui.from} ${new Intl.NumberFormat(
+        "pt-BR",
+        {
+          style: "currency",
+          currency: "BRL",
+          maximumFractionDigits: 0,
+        },
+      ).format(price)}`;
