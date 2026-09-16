@@ -58,13 +58,18 @@ export function TechnologyCard({ technology: t }: { technology: Technology }) {
 export function ResultCard({ result: r }: { result: Result }) {
   return (
     <article className="result-card">
-      <div className="comparison">
-        <ImagePlaceholder media={r.beforeImage} ratio="3 / 4" />
-        <ImagePlaceholder media={r.afterImage} ratio="3 / 4" />
-      </div>
+
+      <ImagePlaceholder
+        media={r.beforeImage}
+        ratio="2 / 1"
+      />
+
       <h3>{r.treatment}</h3>
+
       <p>{r.objective}</p>
+
       {r.period && <p>{r.period}</p>}
+
     </article>
   );
 }
@@ -75,15 +80,23 @@ export function TestimonialCard({
 }) {
   return (
     <figure className="testimonial-card">
+
+      <ImagePlaceholder
+        media={t.image}
+        ratio="1 / 1"
+      />
+
       <div className="stars" role="img" aria-label={s.ui.stars}>
         ★★★★★
       </div>
-      <p className="small">{t.rating}</p>
+
       <blockquote>{t.quote}</blockquote>
+
       <figcaption>
         <strong>{t.name}</strong>
         <span>{t.role}</span>
       </figcaption>
+
     </figure>
   );
 }

@@ -39,6 +39,7 @@ export interface Testimonial {
   name: string;
   role: string;
   rating: string;
+  image: Media;
 }
 export interface Result {
   id: string;

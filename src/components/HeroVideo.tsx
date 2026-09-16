@@ -32,7 +32,6 @@ export function HeroVideo({
       <div className="hero-overlay" />
       <Container>
         <div className="hero-copy">
-          <p className="eyebrow">{s.hero.eyebrow}</p>
           <h1>{s.hero.headline}</h1>
           <p className="hero-description">{s.hero.text}</p>
           <div className="button-row">
@@ -43,26 +42,6 @@ export function HeroVideo({
               {s.ctas.treatments}
             </Button>
           </div>
-        </div>
-        <div className="hero-bottom">
-          <span>{s.brand.location}</span>
-          {src ? (
-            <button
-              className="video-control"
-              onClick={() =>
-                playing
-                  ? video.current?.pause()
-                  : void video.current?.play().catch(() => {})
-              }
-            >
-              {playing ? s.hero.pause : s.hero.play}
-            </button>
-          ) : (
-            <span className="video-label">
-              <span aria-hidden="true">▷</span>
-              {s.hero.placeholder}
-            </span>
-          )}
         </div>
       </Container>
     </section>

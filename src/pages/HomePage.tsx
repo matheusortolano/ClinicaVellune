@@ -21,21 +21,22 @@ import {
 import { LocationSection } from "../components/LocationSection";
 import { ContactForm } from "../components/ContactForm";
 import { Seo } from "../components/Seo";
+
 function Hook() {
   return (
-    <section className="section hook">
-      <Container>
-        <p className="eyebrow">{s.hook.eyebrow}</p>
-        <h2>{s.hook.headline}</h2>
-        <div className="hook-bottom">
-          <p className="hook-highlight">{s.hook.highlight}</p>
-          <div>
-            {s.hook.paragraphs.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-          </div>
-        </div>
-      </Container>
+    <section className="hook-video-section">
+      <video
+        className="hook-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source
+          src="/videos/essencia-vellune.mp4"
+          type="video/mp4"
+        />
+      </video>
     </section>
   );
 }

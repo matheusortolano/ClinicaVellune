@@ -7,7 +7,7 @@ Front-end conceitual para o portfólio da Nimbus. React + TypeScript + Vite + Re
 Requer Node.js 22.12+ (ou 20.19+) e npm.
 
 ```powershell
-cd "C:\Users\Matheus Ortolano\Documents\Codex\2026-09-12\crie-o-front-end-completo-e\outputs\vellune"
+cd "D:\Projetos\Clinica_Vellune\outputs\vellune"
 npm install
 npm run dev
 ```
