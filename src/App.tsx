@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Header, Footer } from "./components/Layout";
 import { RouteEffects } from "./components/Seo";
 import HomePage from "./pages/HomePage";
@@ -13,7 +13,7 @@ import {
 } from "./pages/InfoPages";
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <RouteEffects />
       <Header />
       <main id="main" tabIndex={-1}>
@@ -29,6 +29,6 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
